@@ -9,8 +9,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import lombok.Data;
+
+import com.example.board.validation.Group1;
+import com.example.board.validation.Group2;
 
 /**
  * 投稿.
@@ -20,37 +22,37 @@ import lombok.Data;
 @Data
 public class Post {
 
-	/** ID */
-	@NotNull
-	@Id
-	@Column
-	private String id = null;
+    /** ID */
+    @NotNull
+    @Id
+    @Column
+    private String id = null;
 
-	/** 投稿者 */
-	@NotEmpty
-	@Size(min = 1, max = 20)
-	@Column(length = 20, nullable = false)
-	private String author = null;
+    /** 投稿者 */
+    @NotEmpty(groups = Group1.class)
+    @Size(min = 1, max = 20, groups = Group2.class)
+    @Column(length = 20, nullable = false)
+    private String author = null;
 
-	/** タイトル */
-	@NotEmpty
-	@Size(min = 1, max = 20)
-	@Column(length = 20, nullable = false)
-	private String title = null;
+    /** タイトル */
+    @NotEmpty(groups = Group1.class)
+    @Size(min = 1, max = 20, groups = Group2.class)
+    @Column(length = 20, nullable = false)
+    private String title = null;
 
-	/** 内容 */
-	@NotEmpty
-	@Size(min = 1, max = 1000)
-	@Column(length = 1000, nullable = false)
-	private String body = null;
+    /** 内容 */
+    @NotEmpty(groups = Group1.class)
+    @Size(min = 1, max = 1000, groups = Group2.class)
+    @Column(length = 1000, nullable = false)
+    private String body = null;
 
-	/** 登録日時 */
-	private Date createdDate = null;
+    /** 登録日時 */
+    private Date createdDate = null;
 
-	/** 更新日時 */
-	private Date updatedDate = null;
+    /** 更新日時 */
+    private Date updatedDate = null;
 
-	/** 削除済 */
-	private boolean deleted = false;
+    /** 削除済 */
+    private boolean deleted = false;
 
 }
