@@ -9,8 +9,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import lombok.Data;
+
+import com.example.board.validation.Group1;
+import com.example.board.validation.Group2;
 
 /**
  * 投稿.
@@ -27,20 +29,20 @@ public class Post {
     private String id = null;
 
     /** 投稿者 */
-    @NotEmpty
-    @Size(min = 1, max = 20)
+    @NotEmpty(groups = Group1.class)
+    @Size(min = 1, max = 20, groups = Group2.class)
     @Column(length = 20, nullable = false)
     private String author = null;
 
     /** タイトル */
-    @NotEmpty
-    @Size(min = 1, max = 20)
+    @NotEmpty(groups = Group1.class)
+    @Size(min = 1, max = 20, groups = Group2.class)
     @Column(length = 20, nullable = false)
     private String title = null;
 
     /** 内容 */
-    @NotEmpty
-    @Size(min = 1, max = 1000)
+    @NotEmpty(groups = Group1.class)
+    @Size(min = 1, max = 1000, groups = Group2.class)
     @Column(length = 1000, nullable = false)
     private String body = null;
 
