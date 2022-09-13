@@ -32,4 +32,5 @@ public interface PostRepository extends JpaRepository<Post, Long> {
      * @return 投稿のリスト
      */
     List<Post> findByDeletedFalseOrderByUpdatedDateDesc();
+
 }
