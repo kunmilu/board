@@ -10,13 +10,11 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
-	/**
-	 * IDで検索する
-	 *
-	 * @param id ID
-	 * @return 投稿
-	 */
-	 public Optional<Post> findById(String id);
+    /**
+     * IDで検索する
+     *
+     * @param id ID
+     * @return 投稿
+     */
+    public Optional<Post> findById(String id);
 }
-
-
